@@ -17,10 +17,20 @@ class PicsumPhotosProvider extends BaseProvider
 
     protected static $gravities = ["north", "east", "south", "west", "center"];
 
-    // $specific = false|true|int
+
+    /**
+     * @param int $width
+     * @param int $height
+     * @param bool $specific = integer|false|true(a random number between 0..1084 will be selected)
+     * @param bool $random
+     * @param bool $gray
+     * @param bool $blur
+     * @param null $gravity = north|east|south|west|center
+     * @return string
+     */
     public static function imageUrl($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null)
     {
-        $url = "{$width}/{$height}/";
+        $url = "{$width}/{$height}";
         $args = [];
 
         if ( $gray ) {
@@ -51,6 +61,6 @@ class PicsumPhotosProvider extends BaseProvider
             $url .= "?" . http_build_query($args);
         }
 
-        return $url;
+        return static::$baseUrl . $url;
     }
 }
