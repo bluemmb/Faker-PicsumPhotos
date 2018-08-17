@@ -1,0 +1,28 @@
+{
+  "name": "bluemmb/faker-picsum-photos-provider",
+  "description": "picsum.photos provider for Faker",
+  "keywords": [
+    "faker",
+    "picsum.photos",
+    "provider"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Mohammad Eftekhari",
+      "email": "bluemmb22@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^5.3.3 || ^7.0",        // from faker package
+    "fzaninotto/faker": "~1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bluemmb\\Faker\\": "."
+    }
+  }
+}
