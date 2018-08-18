@@ -1,9 +1,11 @@
 Picsum.photos Provider for PHP Faker
 ===========================================
 
+[![Build Status](https://travis-ci.org/bluemmb/Faker-PicsumPhotos.svg?branch=master)](https://travis-ci.org/bluemmb/Faker-PicsumPhotos)
+
 [picsum.photos](http://picsum.photos/) provider for [Faker](https://github.com/fzaninotto/Faker).
 
-Progress ~ 75%
+Progress ~ 80%
  
 ---
  
