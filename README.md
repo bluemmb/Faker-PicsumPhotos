@@ -59,12 +59,3 @@ $url = $faker->imageUrl(300,100, false, false, false, false, 'north');
 $url = $faker->imageUrl(300,100, 88, false, true, true, 'west');
 ```
  
----
- 
-##### TODO
-
-- [x] Check for image id's that are invalid between 0..1084
-- [x] Add more and better tests
-- [x] Add travis.yml
-- [x] Add project to Packagist.org
-- [x] Simple Documentation on how to use the package
