@@ -23,8 +23,6 @@ class PicsumPhotosProviderTest extends TestCase
 
     public function imageUrlDataProvider()
     {
-        // TODO: Test random outputs ( $specific = true )
-
         return [
             [
                 '640/480',
@@ -89,6 +87,53 @@ class PicsumPhotosProviderTest extends TestCase
             [
                 'g/100/100?random=1&blur=1&gravity=west',
                 100, 100, false, true, true, true, 'west',
+            ],
+        ];
+    }
+
+
+    /**
+     * Test if $specific=true returns a random image id
+     *
+     * @covers ::imageUrl
+     * @dataProvider imageUrlSpecificTrueDataProvider
+     */
+    public function testImageUrlSpecificTrue($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null)
+    {
+        $url = PicsumPhotosProvider::imageUrl($width, $height, $specific, $random, $gray, $blur, $gravity);
+
+        $this->assertRegExp("<https://picsum.photos/{$width}/{$height}\?image=([0-9]+)>", $url);
+    }
+
+    /**
+     * Test if $specific=true returns a random number in range [0..1084]
+     *
+     * @covers ::imageUrl
+     * @dataProvider imageUrlSpecificTrueDataProvider
+     */
+    public function testImageUrlSpecificTrueAssertBoundary($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null)
+    {
+        $url = PicsumPhotosProvider::imageUrl($width, $height, $specific, $random, $gray, $blur, $gravity);
+
+        $matchs_array = [];
+        $matchs = preg_match("<https://picsum.photos/{$width}/{$height}\?image=([0-9]+)>", $url, $matchs_array);
+
+        $this->assertSame($matchs, 1);
+        $this->assertTrue( $matchs_array[1] >= 0 && $matchs_array[1] <= 1084,
+                        "Specific number {$matchs_array[1]} is not in range 0..1084");
+    }
+
+    public function imageUrlSpecificTrueDataProvider()
+    {
+        return [
+            [
+                100, 100, true,
+            ],
+            [
+                200, 200, true,
+            ],
+            [
+                400, 100, true,
             ],
         ];
     }
