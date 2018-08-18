@@ -135,6 +135,12 @@ class PicsumPhotosProviderTest extends TestCase
             [
                 400, 100, true,
             ],
+            [
+                400, 100, 86,
+            ],
+            [
+                400, 100, 0,
+            ],
         ];
     }
 }
