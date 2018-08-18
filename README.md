@@ -9,7 +9,7 @@ Progress ~ 75%
  
 ##### TODO
 
-- Check for image id's that are invalid between 0..1084
-- Add more and better tests
-- Add travis.yml
-- Add project to Packagist.org
+- [ ] Check for image id's that are invalid between 0..1084
+- [ ] Add more and better tests
+- [x] Add travis.yml
+- [ ] Add project to Packagist.org
