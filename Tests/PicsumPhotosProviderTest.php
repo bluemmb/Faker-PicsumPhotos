@@ -23,9 +23,7 @@ class PicsumPhotosProviderTest extends TestCase
 
     public function imageUrlDataProvider()
     {
-        // TODO: Separate tests with random output and have a better plan to check them
-        // Set a fixed seed to have a fixed sequence of random numbers
-        srand(1000000007);
+        // TODO: Test random outputs ( $specific = true )
 
         return [
             [
@@ -91,12 +89,6 @@ class PicsumPhotosProviderTest extends TestCase
             [
                 'g/100/100?random=1&blur=1&gravity=west',
                 100, 100, false, true, true, true, 'west',
-            ],
-
-            // Random number
-            [
-                '100/100?image=155',
-                100, 100, true, false, false, false,
             ],
         ];
     }
