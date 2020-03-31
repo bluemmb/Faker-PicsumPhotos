@@ -17,6 +17,7 @@ class PicsumPhotosProvider extends BaseProvider
 
     protected static $gravities = ["north", "east", "south", "west", "center"];
 
+    protected static $extensions = ["jpg", "webp"];
 
     /**
      * @param int $width
@@ -28,7 +29,7 @@ class PicsumPhotosProvider extends BaseProvider
      * @param null $gravity = north|east|south|west|center
      * @return string
      */
-    public static function imageUrl($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null)
+    public static function imageUrl($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null, $extension=null)
     {
         $url = "{$width}/{$height}";
         $args = [];
@@ -55,6 +56,10 @@ class PicsumPhotosProvider extends BaseProvider
         }
         else if ( is_int($specific) ) {
             $args["image"] = static::validPicsumPhotosImageID($specific);
+        }
+
+        if( $extension && in_array($extension, static::$extensions ) ) {
+            $url .= ".$extension";
         }
 
         if ( count($args) > 0 ) {

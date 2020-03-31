@@ -14,9 +14,9 @@ class PicsumPhotosProviderTest extends TestCase
      * @covers ::imageUrl
      * @dataProvider imageUrlDataProvider
      */
-    public function testImageUrl($expected, $width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null)
+    public function testImageUrl($expected, $width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null, $extension=null)
     {
-        $url = PicsumPhotosProvider::imageUrl($width, $height, $specific, $random, $gray, $blur, $gravity);
+        $url = PicsumPhotosProvider::imageUrl($width, $height, $specific, $random, $gray, $blur, $gravity, $extension);
 
         $this->assertSame("https://picsum.photos/".$expected, $url);
     }
@@ -85,8 +85,20 @@ class PicsumPhotosProviderTest extends TestCase
                 100, 100, false, false, false, false, 'wrong',
             ],
             [
-                'g/100/100?random=1&blur=1&gravity=west',
-                100, 100, false, true, true, true, 'west',
+                '100/100.jpg',
+                100, 100, false, false, false, false, null, 'jpg',
+            ],
+            [
+                '100/100.webp',
+                100, 100, false, false, false, false, null, 'webp',
+            ],
+            [
+                '100/100',
+                100, 100, false, false, false, false, null, 'wrong',
+            ],
+            [
+                'g/100/100.webp?random=1&blur=1&gravity=west',
+                100, 100, false, true, true, true, 'west', 'webp',
             ],
         ];
     }
@@ -111,12 +123,12 @@ class PicsumPhotosProviderTest extends TestCase
      * @covers ::imageUrl
      * @dataProvider imageUrlSpecificTrueDataProvider
      */
-    public function testImageUrlSpecificTrueAssertBoundary($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null)
+    public function testImageUrlSpecificTrueAssertBoundary($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null, $extension=null)
     {
-        $url = PicsumPhotosProvider::imageUrl($width, $height, $specific, $random, $gray, $blur, $gravity);
+        $url = PicsumPhotosProvider::imageUrl($width, $height, $specific, $random, $gray, $blur, $gravity, $extension);
 
         $matchs_array = [];
-        $matchs = preg_match("<https://picsum.photos/{$width}/{$height}\?image=([0-9]+)>", $url, $matchs_array);
+        $matchs = preg_match("<https://picsum.photos/{$width}/{$height}[.jpg|.webp]?\?image=([0-9]+)>", $url, $matchs_array);
 
         $this->assertSame($matchs, 1);
         $this->assertTrue( $matchs_array[1] >= 0 && $matchs_array[1] <= 1084,
