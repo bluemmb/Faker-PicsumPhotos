@@ -27,6 +27,7 @@ class PicsumPhotosProvider extends BaseProvider
      * @param bool $gray
      * @param bool $blur
      * @param null $gravity = north|east|south|west|center
+     * @param null $extension = jpg|webp
      * @return string
      */
     public static function imageUrl($width = 640, $height = 480, $specific=false, $random=false, $gray=false, $blur=false, $gravity=null, $extension=null)
