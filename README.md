@@ -5,6 +5,7 @@ Picsum.photos Provider for PHP Faker
 
 [picsum.photos](http://picsum.photos/) provider for [Faker](https://github.com/fzaninotto/Faker).
 
+**Note: [Version 2](https://github.com/bluemmb/Faker-PicsumPhotos/projects/1) is in progress**
 
 ## Install
 
