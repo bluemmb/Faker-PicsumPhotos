@@ -15,7 +15,8 @@
   ],
   "require": {
     "php": "^5.3.3 || ^7.0",
-    "fzaninotto/faker": "~1"
+    "fzaninotto/faker": "~1",
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
