@@ -60,10 +60,10 @@ foreach ( $results as $r ) {
         $invalids[$last] = $valids[ array_rand($valids) ];
 
     $last = $id;
-    $last_valid = $id;
 }
 
-echo "\n\nMax id : " . $last;
+echo "\n\nMin id : " . $results[0]->id;
+echo "\nMax id : " . $last;
 
 $suggestions = [];
 foreach ( $invalids as $key => $val ) {
