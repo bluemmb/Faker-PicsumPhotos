@@ -9,10 +9,10 @@ Picsum.photos Provider for PHP Faker
 
 ## Install
 
-Install the PicsumPhotos Provider by adding `bluemmb/faker-picsum-photos-provider` to your composer.json or from CLI:
+Install the PicsumPhotos Provider by adding `bluemmb/faker-picsum-photos-provider: "^1.0"` to your composer.json or from CLI:
 
 ```
-$ composer require bluemmb/faker-picsum-photos-provider
+$ composer require bluemmb/faker-picsum-photos-provider ^1.0
 ```
 
 ## Usage
