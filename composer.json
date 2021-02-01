@@ -15,7 +15,7 @@
   ],
   "require": {
     "php": "^7.0 || ^8.0",
-    "fzaninotto/faker": "~1",
+    "fakerphp/faker": "^1.10",
     "ext-json": "*"
   },
   "require-dev": {
