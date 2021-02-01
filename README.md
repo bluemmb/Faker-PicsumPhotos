@@ -7,12 +7,12 @@ Picsum.photos Provider for PHP Faker
 
 ## Versions
 - [Version 2](#version-2)
-- [Version 1 (old)](https://github.com/bluemmb/Faker-PicsumPhotos/tree/v1.0)
+- [Version 1 (old)](https://github.com/bluemmb/Faker-PicsumPhotos/tree/v1)
 
 
 ## Version 2
 
-**Notice: This is documentation for new version, for older version go to [Version v1](https://github.com/bluemmb/Faker-PicsumPhotos/tree/v1.0)**
+**Notice: This is documentation for new version, for older version go to [Version v1](https://github.com/bluemmb/Faker-PicsumPhotos/tree/v1)**
 
 ### Install
 
