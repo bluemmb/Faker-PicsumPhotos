@@ -46,9 +46,14 @@ class PicsumPhotosProvider extends BaseProvider
         }
 
         // url
-        $url = "{$width}/{$height}" . ($file_ending ? '.'.$file_ending : '');
+        $url = "{$width}/{$height}";
+
         if      ( !is_null($id)   ) $url = "id/{$id}/" . $url;
         else if ( !is_null($seed) ) $url = "seed/{$seed}/" . $url;
+
+        if ( in_array($file_ending, ['jpg', 'webp']) ) {
+            $url .= ".{$file_ending}";
+        }
 
         if ( count($args) > 0 ) {
             $url .= "?" . http_build_query($args);

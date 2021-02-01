@@ -40,6 +40,14 @@ class ImageUrlTest extends TestCase
                 100, 100,
             ],
             [
+                '100/100',
+                100, 100, false
+            ],
+            [
+                'id/0/100/100',
+                100, 100, 0
+            ],
+            [
                 'id/22/100/100',
                 100, 100, 22
             ],
@@ -72,12 +80,16 @@ class ImageUrlTest extends TestCase
                 100, 100, false, true, true,
             ],
             [
-                '100/100.png',
+                '100/100.jpg',
+                100, 100, false, false, false, 'jpg',
+            ],
+            [
+                '100/100',
                 100, 100, false, false, false, 'png',
             ],
             [
-                'id/22/100/100.png?grayscale=true&blur=5',
-                100, 100, 22, true, 5, 'png',
+                'id/22/100/100.webp?grayscale=true&blur=5',
+                100, 100, 22, true, 5, 'webp',
             ],
         ];
     }

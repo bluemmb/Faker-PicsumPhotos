@@ -77,16 +77,16 @@ $url = $faker->imageUrl(
     false, 5
 );
 
-// https://picsum.photos/300/100.png
+// https://picsum.photos/300/100.jpg
 $url = $faker->imageUrl(
     300,100, false, 
-    false, false, 'png'
+    false, false, 'jpg'
 );
 
-// https://picsum.photos/id/88/300/100.jpg?grayscale=true&blur=3
+// https://picsum.photos/id/88/300/100.webp?grayscale=true&blur=3
 $url = $faker->imageUrl(
     300,100, 88,
-    true, 3, 'jpg'
+    true, 3, 'webp'
 );
 ```
  
