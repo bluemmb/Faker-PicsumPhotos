@@ -35,7 +35,7 @@ class PicsumPhotosProvider extends BaseProvider
         }
 
         // blur
-        if ( $blur ) {
+        if ( !is_null($blur) ) {
             if ( $blur === true ) {
                 $args["blur"] = 'true';
             }
