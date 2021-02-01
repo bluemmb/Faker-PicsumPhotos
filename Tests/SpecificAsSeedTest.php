@@ -24,7 +24,7 @@ class SpecificAsSeedTest extends TestCase
 
         $regex = "<https://picsum.photos/seed/([0-9a-zA-Z]+)/{$width}/{$height}>";
 
-        $this->assertRegExp($regex, $url);
+        $this->assertMatchesRegularExpression($regex, $url);
 
         $matchs_array = [];
         $matchs = preg_match($regex, $url, $matchs_array);
