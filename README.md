@@ -3,9 +3,9 @@ Picsum.photos Provider for PHP Faker
 
 [![Build Status](https://travis-ci.org/bluemmb/Faker-PicsumPhotos.svg?branch=master)](https://travis-ci.org/bluemmb/Faker-PicsumPhotos)
 
-*Build gives error for old php7 version only because of phpunit version*
+*Build gives error for php 7.1 and 7.2 versions only because of phpunit version*
 
-[picsum.photos](http://picsum.photos/) provider for [Faker](https://github.com/fzaninotto/Faker).
+[picsum.photos](http://picsum.photos/) provider for [Faker](https://github.com/FakerPHP/Faker).
 
 ## Versions
 - [Version 2](#version-2)
