@@ -9,13 +9,33 @@
  *    by preventing of checking that if the chosen random image id is valid or not.
  */
 
-$url = "https://picsum.photos/list";
+$url = "https://picsum.photos/v2/list?limit=100&page=";
 
-echo "Downloading latest list ...";
-$contents = file_get_contents($url);
-$contents = utf8_encode($contents);
-$results = json_decode($contents);
+echo "Downloading the list of images ...\n";
+$results = [];
+$page = 1;
+while ( true ) {
+    echo "Downloading page ${page} ...\n";
+    $contents = file_get_contents($url . (string)($page));
+    $contents = utf8_encode($contents);
+    $new_results = json_decode($contents);
+
+    if ( count($new_results) == 0 )
+        break;
+
+    $results = array_merge($results, $new_results);
+    $page = $page + 1;
+}
 echo "\n\nNumber of images : " . count($results);
+
+
+/*
+ * Sort the list by id
+ */
+usort($results, function ($a, $b) {
+    return (intval($a->id) - intval($b->id)) > 0 ? +1 : -1;
+});
+
 
 /*
  * Assumptions :
@@ -40,10 +60,10 @@ foreach ( $results as $r ) {
         $invalids[$last] = $valids[ array_rand($valids) ];
 
     $last = $id;
-    $last_valid = $id;
 }
 
-echo "\n\nMax id : " . $last;
+echo "\n\nMin id : " . $results[0]->id;
+echo "\nMax id : " . $last;
 
 $suggestions = [];
 foreach ( $invalids as $key => $val ) {
