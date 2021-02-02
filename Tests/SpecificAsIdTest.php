@@ -24,7 +24,7 @@ class SpecificAsIdTest extends TestCase
 
         $regex = "<https://picsum.photos/id/([0-9]+)/{$width}/{$height}>";
 
-        $this->assertMatchesRegularExpression($regex, $url);
+        $this->assertRegExp($regex, $url);
 
         $matchs_array = [];
         $matchs = preg_match($regex, $url, $matchs_array);
